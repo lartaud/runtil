@@ -8,8 +8,8 @@ Usage
 
     runtil <end time> <command>
 
-Where <end time> is a time formatted using 24 hours format (1PM = 13:00).
-If <end time> is anterior to the current time, runtil will allow the command to run until the asked time *the next day*.
+Where \<end time\> is a time formatted using 24 hours format (1PM = 13:00).
+If \<end time\> is anterior to the current time, runtil will allow the command to run until the asked time *the next day*.
 
 The command is cleanly stopped by a TERM signal.
 
