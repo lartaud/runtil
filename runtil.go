@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io"
 	"log"
 	"os"
 	"os/exec"
@@ -42,16 +41,8 @@ func main() {
 	cmd := exec.Command(c[0], c[1:]...)
 
 	// redirect the outputs
-	stdout, err := cmd.StdoutPipe()
-	if err != nil {
-		log.Fatal(err)
-	}
-	stderr, err := cmd.StderrPipe()
-	if err != nil {
-		log.Fatal(err)
-	}
-	go io.Copy(os.Stdout, stdout)
-	go io.Copy(os.Stderr, stderr)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
 
 	// execute the command
 	err = cmd.Start()
